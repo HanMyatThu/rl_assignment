@@ -3,11 +3,11 @@ import matplotlib.pyplot as plt
 
 # List the CSV files from 5 runs
 files = [
-    './results/naive_with_lr_ab/0.001/data_lr_0.001_1.csv',
-    './results/naive_with_lr_ab/0.001/data_lr_0.001_2.csv',
-    './results/naive_with_lr_ab/0.001/data_lr_0.001_3.csv',
-    './results/naive_with_lr_ab/0.001/data_lr_0.001_4.csv',
-    './results/naive_with_lr_ab/0.001/data_lr_0.001_5.csv'
+    './results/only_er/data_only_er_1.csv',
+    './results/only_er/data_only_er_2.csv',
+    './results/only_er/data_only_er_3.csv',
+    './results/only_er/data_only_er_4.csv',
+    './results/only_er/data_only_er_5.csv'
 ]
 
 dfs = [pd.read_csv(f) for f in files]
@@ -27,7 +27,7 @@ aggregated = pd.DataFrame({
     'env_step': env_steps
 })
 
-aggregated.to_csv('./results/naive_with_lr_ab/0.001/0.001.csv', index=False)
+aggregated.to_csv('./results/0.001.csv', index=False)
 print("File saved")
 
 plt.figure(figsize=(10, 6))
@@ -40,6 +40,6 @@ plt.fill_between(
 )
 plt.xlabel("Environment Steps")
 plt.ylabel("Episode Return (Smoothed)")
-plt.title("DQN Training, LR = 0.001 (Mean of 5 Runs)")
+plt.title("DQN Training, only_er (Mean of 5 Runs)")
 plt.legend()
 plt.show()
